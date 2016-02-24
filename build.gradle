@@ -1,0 +1,79 @@
+group 'com.colinsurprenant'
+
+version '0.1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'jflex'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        // clone https://github.com/thomaslee/gradle-jflex-plugin
+        // $ gradle build
+        // I edited all references to flex 1.6.0 to 1.6.1
+        // $ gradle install
+        classpath 'co.tomlee.gradle.plugins:gradle-jflex-plugin:0.0.3-SNAPSHOT'
+    }
+}
+
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+// support for "provided" dependencies
+configurations {
+    provided
+}
+
+// support for "provided" dependencies
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+// sync "provided" dependencies into intellij module dependencies
+idea {
+    module {
+        scopes.PROVIDED.plus += [project.configurations.provided]
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    provided 'org.apache.lucene:lucene-core:5.4.1'
+    provided 'org.apache.lucene:lucene-analyzers-common:5.4.1'
+    compile 'de.jflex:jflex:1.6.1'
+    jflex 'de.jflex:jflex:1.6.1'
+}
+
+// below handles the embedded gem jar copy/clean
+
+task copyGemjar(type: Copy, dependsOn: classes) {
+    from project.jar
+    into project.file('lib/fast_fuzy')
+}
+
+task cleanGemjar {
+    delete fileTree(project.file('lib/fast_fuzy')) {
+        include '*.jar'
+    }
+}
+
+clean.dependsOn(cleanGemjar)
+build.finalizedBy(copyGemjar)
+
+// See http://www.gradle.org/docs/current/userguide/gradle_wrapper.html
+task wrapper(type: Wrapper) {
+    description = 'Install Gradle wrapper'
+    gradleVersion = '2.8'
+}
+
