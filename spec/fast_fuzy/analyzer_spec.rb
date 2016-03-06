@@ -42,6 +42,7 @@ describe FastFuzy::Analyzer do
       let(:tests) {[
         # the following tests are actually copied from the TwitterTokenizer tests below and
         # ajusted to the StandardTokenizer chain results.
+        # TODO: make better tests for StandardTokenizer & default chain
 
         ["2012 $80K/year", [["2012", "<NUM>"],  ["80k", "<ALPHANUM>"], ["year", "<ALPHANUM>"]]],
         ["is @ 7.9% and 1% not 4th", [["7.9", "<NUM>"], ["1", "<NUM>"], ["4th", "<ALPHANUM>"]]],
