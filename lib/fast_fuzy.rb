@@ -10,7 +10,12 @@ module FastFuzy
     # if in local dev setup, add target to classpath
     $CLASSPATH << classes_dir unless $CLASSPATH.include?(classes_dir)
   else
-    raise("TODO: add jar loading")
+    jar_path = "fast_fuzy/fastfuzy-#{VERSION}.jar"
+    begin
+      require jar_path
+    rescue Exception => e
+      raise("Error loading #{jar_path}, cause: #{e.message}")
+    end
   end
 end
 
