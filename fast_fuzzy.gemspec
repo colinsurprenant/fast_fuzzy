@@ -9,22 +9,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Colin Surprenant"]
   spec.email         = ["colin.surprenant@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "JRuby Fast and fuzzy text pattern matching using Lucene analyzers"
+  spec.description   = "JRuby Fast and fuzzy text pattern matching using Lucene analyzers"
+  spec.homepage      = "https://github.com/colinsurprenant/fast_fuzzy"
+  spec.licenses      = ["Apache-2.0"]
 
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
-  spec.files         = Dir.glob(["*.gemspec", "lib/**/*.jar", "lib/**/*.rb", "spec/**/*.rb"])
+  spec.files         = Dir.glob(["*.gemspec", "lib/**/*.jar", "lib/**/*.rb", "spec/**/*.rb", "LICENSE", "README.md"])
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
 
-  spec.platform = "java"
+  spec.platform      = "java"
 
   spec.add_runtime_dependency "jar-dependencies"
 
