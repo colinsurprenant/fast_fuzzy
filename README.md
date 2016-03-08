@@ -116,11 +116,11 @@ $ ./gradlew build
 ### Tests / Specs
 
 ```sh
-bundle install
+$ bundle install
 ```
 
 ```sh
-bundle exec rspec
+$ bundle exec rspec
 ```
 
 ## Author
