@@ -36,7 +36,7 @@ p << "looking for a restaurant"
 p << "recommend a restaurant"
 ```
 
-- Run th `Percolator` against some text. The result is the list of matching "queries" sorted in ascending score order.
+- Run the `Percolator` against some text. The result is the list of matching "queries" sorted in ascending score order.
 
 ```ruby
 p.percolate("hey! anyone can recomment a good restaurant in montreal tonight?")
@@ -69,7 +69,8 @@ p << "recommend a restaurant"
 
 ```ruby
 p.percolate("RT yo lookin for a good restaurant #montreal #foodie")
-=> [[1, 0.5263157894736842], [0, 0.7647058823529411]]```
+=> [[1, 0.5263157894736842], [0, 0.7647058823529411]]
+```
 
 ## Custom Twitter Tokenizer
 
