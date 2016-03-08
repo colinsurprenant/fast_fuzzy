@@ -10,11 +10,11 @@ describe FastFuzy::Percolator do
     p << "test2"
     expect(p.queries).to eq(["test1", "test2"])
 
-    p = FastFuzy::Percolator.new(["test1", "test2"])
+    p = FastFuzy::Percolator.new(:queries => ["test1", "test2"])
     expect(p.queries).to eq(["test1", "test2"])
   end
 
-  it "should percolate" do
+  it "should percolate using standard chain by default" do
     p = FastFuzy::Percolator.new
     p << "faire une chose"
     p << "etre subtil"
@@ -27,4 +27,15 @@ describe FastFuzy::Percolator do
     p << "looking for a job"
     expect(p.percolate("I hate looking for a job").map{|r| [r[0], r[1].round(4)]}).to eq([[0, 1.0]])
   end
+
+  it "should support configurable chain" do
+    p = FastFuzy::Percolator.new(:analyzer_chain => [[Lucene::StandardTokenizer], [Lucene::StandardFilter]])
+    p << "foo bar"
+    expect(p.percolate("FOO BAR")).to eq([])
+
+    p = FastFuzy::Percolator.new(:analyzer_chain => [[Lucene::StandardTokenizer], [Lucene::StandardFilter], [Lucene::LowerCaseFilter]])
+    p << "foo bar"
+    expect(p.percolate("FOO BAR")).to eq([[0, 1.0]])
+  end
+
 end

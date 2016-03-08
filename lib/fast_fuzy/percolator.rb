@@ -7,8 +7,9 @@ module FastFuzy
     attr_reader :queries, :index
     N = 4 # >= 3 is necessary to wheight consecutiveness of words (ex "this car" => thi, his, is_, s_c, _ca, car)
 
-    def initialize(queries = [])
-      @queries = queries
+    def initialize(options = {})
+      @queries = options.delete(:queries) || []
+      @analyzer_chain = options.delete(:analyzer_chain) || Analyzer::STANDARD_CHAIN
 
       @index = Hash.new{|h, k| h[k] = []}
       @query_terms_count = []
@@ -22,7 +23,7 @@ module FastFuzy
     end
 
     def percolate(str)
-      analyser = Analyzer.new(str)
+      analyser = Analyzer.new(str, @analyzer_chain)
 
       terms_phrase = analyser.select{|term| term[1] == Lucene::ALPHANUM_TYPE}.map{|term| term[0]}.join(' ')
       terms_phrase = " #{terms_phrase} "
@@ -39,7 +40,7 @@ module FastFuzy
       @query_terms_count.clear
 
       @queries.each_index do |query_id|
-        analyser = Analyzer.new(@queries[query_id])
+        analyser = Analyzer.new(@queries[query_id], @analyzer_chain)
 
         terms_phrase = analyser.select{|term| term[1] == Lucene::ALPHANUM_TYPE}.map{|term| term[0]}.join(' ')
         terms_phrase = " #{terms_phrase} "
