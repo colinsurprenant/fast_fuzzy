@@ -84,7 +84,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Author
 
-* [Colin Surprenant](https://github.com/colinsurprenant)
+Colin Surprenant [GitHub](https://github.com/colinsurprenant) [Twitter](https://twitter.com/colinsurprenant)
 
 ## Contributing
 
