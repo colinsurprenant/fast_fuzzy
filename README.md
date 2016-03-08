@@ -97,14 +97,20 @@ $ git clone https://github.com/thomaslee/gradle-jflex-plugin
 ```
 
 ```sh
+$ cd gradle-jflex-plugin
 $ gradle build
 $ gradle install
+# or use gradlew if you do not have Gradle installed
+$ ./gradlew build
+$ ./gradlew install
 ````
 
 - Build Java sources
 
 ```sh
 $ gradle build
+# or use gradlew if you do not have Gradle installed
+$ ./gradlew build
 ```
 
 ### Tests / Specs
