@@ -1,5 +1,7 @@
 # FastFuzzy
 
+This gem only supports [JRuby](http://jruby.org/).
+
 FastFuzzy performs fast and fuzzy text pattern matching. It uses the Lucene analyzers to tokenize the text using a configurable analyzer chain and the extracted tokens
 are matched against the searched text using ngram matching and a resulting match score is computed.
 
@@ -8,6 +10,8 @@ The original intent of this code was to perform on-the-fly matching of some spec
 Note that this gem also include a custom Lucene Twitter tokenizer, see usage examples below.
 
 ## Installation
+
+This gem only supports [JRuby](http://jruby.org/).
 
 Add this line to your application's Gemfile:
 
