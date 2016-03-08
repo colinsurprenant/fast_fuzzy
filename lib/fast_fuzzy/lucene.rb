@@ -22,9 +22,9 @@ module Lucene
     end
   end
 
-  module FastFuzy
+  module FastFuzzy
     # custom TwitterTokenizer
-    include_package "com.colinsurprenant.fastfuzy"
+    include_package "com.colinsurprenant.fastfuzzy"
   end
 
   StandardTokenizer = Analysis::Standard::StandardTokenizer
@@ -38,5 +38,5 @@ module Lucene
   TypeAttribute = Analysis::TokenAttributes::TypeAttribute
   FlagsAttribute = Analysis::TokenAttributes::FlagsAttribute
 
-  TwitterTokenizer = FastFuzy::TwitterTokenizer
+  TwitterTokenizer = FastFuzzy::TwitterTokenizer
 end

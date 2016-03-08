@@ -1,15 +1,15 @@
 require_relative '../spec_helper'
 
-describe FastFuzy::Analyzer do
+describe FastFuzzy::Analyzer do
 
   it "should support to_a" do
-    analyzer = FastFuzy::Analyzer.new("aa bb")
+    analyzer = FastFuzzy::Analyzer.new("aa bb")
     expect(analyzer.to_a).to be_a(Array)
     expect(analyzer.to_a.size).to eq(2)
   end
 
   it "should support each" do
-    analyzer = FastFuzy::Analyzer.new("aa bb")
+    analyzer = FastFuzzy::Analyzer.new("aa bb")
     result = []
     analyzer.each{|token| result << token}
     expect(result.size).to eq(2)
@@ -18,20 +18,20 @@ describe FastFuzy::Analyzer do
   shared_examples :analyzer do
     it "should analyse and extract correct type" do
       tests.each do |test|
-        analyzer = FastFuzy::Analyzer.new(test.first, chain)
+        analyzer = FastFuzzy::Analyzer.new(test.first, chain)
         expect(analyzer.to_a).to eq(test.last)
       end
     end
 
     it "should support each" do
-      analyzer = FastFuzy::Analyzer.new("aa bb cc", chain)
+      analyzer = FastFuzzy::Analyzer.new("aa bb cc", chain)
       results = []
       analyzer.each{|term| results << term}
       expect(results).to eq([["aa", "<ALPHANUM>"], ["bb", "<ALPHANUM>"], ["cc", "<ALPHANUM>"]])
     end
 
     it "should support Enumerable" do
-      analyzer = FastFuzy::Analyzer.new("aa bb 12", chain)
+      analyzer = FastFuzzy::Analyzer.new("aa bb 12", chain)
       expect(analyzer.map{|term| term.first}).to eq(["aa", "bb", "12"])
       expect(analyzer.map{|term| term.last}).to eq(["<ALPHANUM>", "<ALPHANUM>", "<NUM>"])
     end
@@ -66,7 +66,7 @@ describe FastFuzy::Analyzer do
         ["RT stoopid #FF ", [["rt", "<ALPHANUM>"], ["stoopid", "<ALPHANUM>"], ["ff", "<ALPHANUM>"]]],
       ]}
 
-      let(:chain) { FastFuzy::Analyzer::STANDARD_CHAIN }
+      let(:chain) { FastFuzzy::Analyzer::STANDARD_CHAIN }
     end
   end
 

@@ -2,7 +2,7 @@
 
 require "java"
 
-module FastFuzy
+module FastFuzzy
   # local dev setup
   classes_dir = File.expand_path("../../build/classes/main", __FILE__)
 
@@ -10,7 +10,7 @@ module FastFuzy
     # if in local dev setup, add target to classpath
     $CLASSPATH << classes_dir unless $CLASSPATH.include?(classes_dir)
   else
-    jar_path = "fast_fuzy/fastfuzy-#{VERSION}.jar"
+    jar_path = "fast_fuzzy/fastfuzzy-#{VERSION}.jar"
     begin
       require jar_path
     rescue Exception => e
@@ -19,9 +19,9 @@ module FastFuzy
   end
 end
 
-require "fast_fuzy_jars"
-require "fast_fuzy/version"
-require "fast_fuzy/lucene"
-require "fast_fuzy/analyzer"
-require "fast_fuzy/ngram"
-require "fast_fuzy/percolator"
+require "fast_fuzzy_jars"
+require "fast_fuzzy/version"
+require "fast_fuzzy/lucene"
+require "fast_fuzzy/analyzer"
+require "fast_fuzzy/ngram"
+require "fast_fuzzy/percolator"

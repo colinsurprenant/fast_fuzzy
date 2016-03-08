@@ -1,4 +1,4 @@
-module FastFuzy
+module FastFuzzy
 
   class Analyzer
     include Enumerable

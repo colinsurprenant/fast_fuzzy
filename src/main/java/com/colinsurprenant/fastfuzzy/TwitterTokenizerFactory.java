@@ -1,4 +1,4 @@
-package com.colinsurprenant.fastfuzy;
+package com.colinsurprenant.fastfuzzy;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -24,7 +24,7 @@ import org.apache.lucene.analysis.util.TokenizerFactory;
 import org.apache.lucene.util.AttributeFactory;
 import org.apache.lucene.util.Version;
 
-import com.colinsurprenant.fastfuzy.TwitterTokenizer;
+import com.colinsurprenant.fastfuzzy.TwitterTokenizer;
 
 import java.util.Map;
 

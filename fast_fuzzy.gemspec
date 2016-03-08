@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'fast_fuzy/version'
+require 'fast_fuzzy/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "fast_fuzy"
-  spec.version       = FastFuzy::VERSION
+  spec.name          = "fast_fuzzy"
+  spec.version       = FastFuzzy::VERSION
   spec.authors       = ["Colin Surprenant"]
   spec.email         = ["colin.surprenant@gmail.com"]
 

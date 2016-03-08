@@ -1,7 +1,7 @@
-require 'fast_fuzy/analyzer'
-require 'fast_fuzy/ngram'
+require 'fast_fuzzy/analyzer'
+require 'fast_fuzzy/ngram'
 
-module FastFuzy
+module FastFuzzy
 
   class Percolator
     attr_reader :queries, :index

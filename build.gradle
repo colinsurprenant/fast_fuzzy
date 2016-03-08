@@ -59,11 +59,11 @@ dependencies {
 
 task copyGemjar(type: Copy, dependsOn: classes) {
     from project.jar
-    into project.file('lib/fast_fuzy')
+    into project.file('lib/fast_fuzzy')
 }
 
 task cleanGemjar {
-    delete fileTree(project.file('lib/fast_fuzy')) {
+    delete fileTree(project.file('lib/fast_fuzzy')) {
         include '*.jar'
     }
 }

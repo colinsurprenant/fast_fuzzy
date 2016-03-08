@@ -1,9 +1,9 @@
-# FastFuzy
+# FastFuzzy
 
-FastFuzy performs fast and fuzy text pattern matching. It uses the Lucene analyzers to tokenize the text using a configurable analyzer chain and the extracted tokens
+FastFuzzy performs fast and fuzzy text pattern matching. It uses the Lucene analyzers to tokenize the text using a configurable analyzer chain and the extracted tokens
 are matched against the searched text using ngram matching and a resulting match score is computed.
 
-The original intent of this code was to perform on-the-fly matching of some specific categories of expressions or sentences in social media. Using an analyzer chain to tokenize, remove stop words, etc, allows performing the matching only on the relevant text tokens. Using ngram scoring provides the fuzyness confidence score to find approximate matching text with typos or different spelling or any number of variations. With experimentation an "acceptable" score can be decided to establish if the searched text matches or not against what we are looking for.
+The original intent of this code was to perform on-the-fly matching of some specific categories of expressions or sentences in social media. Using an analyzer chain to tokenize, remove stop words, etc, allows performing the matching only on the relevant text tokens. Using ngram scoring provides the fuzzyness confidence score to find approximate matching text with typos or different spelling or any number of variations. With experimentation an "acceptable" score can be decided to establish if the searched text matches or not against what we are looking for.
 
 Note that this gem also include a custom Lucene Twitter tokenizer, see usage examples below.
 
@@ -12,7 +12,7 @@ Note that this gem also include a custom Lucene Twitter tokenizer, see usage exa
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fast_fuzy'
+gem 'fast_fuzzy'
 ```
 
 And then execute:
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install fast_fuzy
+    $ gem install fast_fuzzy
 
 ## Usage
 
@@ -30,7 +30,7 @@ Or install it yourself as:
 - First configure the `Percolator` with any number of text strings which represents what we are looking for, or the queries:
 
 ```ruby
-p = FastFuzy::Percolator.new
+p = FastFuzzy::Percolator.new
 
 p << "looking for a restaurant"
 p << "recommend a restaurant"
@@ -57,7 +57,7 @@ In this example the first query  "looking for a restaurant" matched with a 0.882
 Included is a custom Twitter Tokenizer and can be used by defining an analyzer chain for the Percolator:
 
 ```ruby
-p = FastFuzy::Percolator.new(:analyzer_chain => [
+p = FastFuzzy::Percolator.new(:analyzer_chain => [
   [Lucene::TwitterTokenizer],
   [Lucene::LowerCaseFilter],
   [Lucene::StopFilter, Lucene::StandardAnalyzer::STOP_WORDS_SET],
@@ -84,12 +84,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Author
 
-Colin Surprenant [GitHub](https://github.com/colinsurprenant) [Twitter](https://twitter.com/colinsurprenant)
+**Colin Surprenant** on [GitHub](https://github.com/colinsurprenant) and [Twitter](https://twitter.com/colinsurprenant).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/colinsurprenant/fast_fuzy.
+Bug reports and pull requests are welcome on GitHub at https://github.com/colinsurprenant/fast_fuzzy.
 
 ## License and Copyright
 
-*FastFuzy* is released under the Apache License, Version 2.0.
+*FastFuzzy* is released under the Apache License, Version 2.0.

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.colinsurprenant.fastfuzy;
+package com.colinsurprenant.fastfuzzy;
 
 import java.io.IOException;
 
